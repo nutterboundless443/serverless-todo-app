@@ -21,7 +21,7 @@ module.exports.getAll = async () => {
 };
 
 module.exports.delete = async (event) => {
-  const id = Number(event.pathParameters.id); // Convert to number if necessary
+  const id = event.pathParameters.id; // Retrieve ID as a string
   const params = {
     TableName: TABLE_NAME,
     Key: { id: id }
