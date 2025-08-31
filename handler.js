@@ -24,7 +24,7 @@ module.exports.delete = async (event) => {
   const id = event.pathParameters.id;
   const params = {
     TableName: TABLE_NAME,
-    Key: { id }  // Ensure it is not converted to string
+    Key: { id: id }  // Ensure it is not converted to string
   };
   await docClient.delete(params).promise();
   return { statusCode: 204 };
