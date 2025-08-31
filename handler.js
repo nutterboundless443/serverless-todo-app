@@ -21,10 +21,10 @@ module.exports.getAll = async () => {
 };
 
 module.exports.delete = async (event) => {
-  const id = event.pathParameters.id;
+  const id = Number(event.pathParameters.id); // Convert to number if necessary
   const params = {
     TableName: TABLE_NAME,
-    Key: { id: id }  // Ensure it is not converted to string
+    Key: { id: id }
   };
   await docClient.delete(params).promise();
   return { statusCode: 204 };
